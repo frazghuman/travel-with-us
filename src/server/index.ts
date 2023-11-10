@@ -7,6 +7,9 @@ import { publicProcedure, router } from "./trpc";
 
 import { todos } from "@/server/db/schema";
 import { eq } from "drizzle-orm";
+import { exec } from "child_process";
+
+
 
 const sqlite = new Database("sqlite.db");
 const db = drizzle(sqlite);
@@ -40,6 +43,11 @@ export const appRouter = router({
         await db.delete(todos).where(eq(todos.id, opts.input));
         return true;
     }),
+    migrateDB: publicProcedure.query(async () => {
+        exec('pnpm drizzle-kit generate:sqlite', () => {
+          
+        });
+      })
 })
 
 export type AppRouter = typeof appRouter;
