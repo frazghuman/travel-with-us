@@ -1,0 +1,15 @@
+{
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build"
+      }
+    ],
+    "functions": {
+      "generateSQLite": {
+        "runtime": "vercel-node@2.4.0",
+        "handler": "index.generateSQLite"
+      }
+    }
+  }
+  
