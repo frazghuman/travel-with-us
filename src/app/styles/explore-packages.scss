@@ -1,0 +1,11 @@
+.bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    &.cities-bg {
+        background-image: url('/assets/explore-packages/cities.svg');
+    }
+    
+    &.nature-bg {
+        background-image: url('/assets/explore-packages/nature.svg');
+    }
+}
